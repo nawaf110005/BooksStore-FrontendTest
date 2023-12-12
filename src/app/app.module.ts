@@ -1,4 +1,8 @@
 import { NgModule } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,16 +12,18 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { BookListComponent } from './components/book-list/book-list.component';
-import { BookDetailComponent } from './components/book-detail/book-detail.component';
-import { BookCatagoryComponent } from './components/book-catagory/book-catagory.component';
-import { BooksCatagoryComponent } from './components/books-catagory/books-catagory.component';
-import { OrderComponent } from './components/order/order.component';
-import { OrderConformationComponent } from './components/components/order-conformation/order-conformation.component';
-import { OrderListComponent } from './components/components/order-list/order-list.component';
-import { EditOrderComponent } from './components/edit-order/edit-order.component';
+import { BookListComponent } from './components/Books/book-list/book-list.component';
+import { BookDetailComponent } from './components/Books/book-detail/book-detail.component';
+import { BookCatagoryComponent } from './components/Books/book-catagory/book-catagory.component';
+import { BooksCatagoryComponent } from './components/Books/books-catagory/books-catagory.component';
+import { OrderComponent } from './components/orders/order/order.component';
+import { OrderConformationComponent } from './components/orders/order-conformation/order-conformation.component';
+import { OrderListComponent } from './components/orders/order-list/order-list.component';
+import { EditOrderComponent } from './components/orders/edit-order/edit-order.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditOrderDialogComponent } from './components/orders/edit-order-dialog/edit-order-dialog.component';
 
 
 @NgModule({
@@ -35,12 +41,17 @@ import { EditOrderComponent } from './components/edit-order/edit-order.component
     OrderConformationComponent,
     OrderListComponent,
     EditOrderComponent,
+    EditOrderDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -68,6 +68,8 @@ export class BooksService {
     const options = {
       headers: this.getAuthHeader()
     };
+
+    
     return this.http.post(`${this.API_URL}/orders/add`, {
       pickupAddress: pickUpAddress,
       pickupDate: pickUpDate,
@@ -76,6 +78,7 @@ export class BooksService {
       bookId: bookId
     }, options);
   }
+
   getOrdersByUser(id: number): Observable<Order[]> {
     const options = {
       headers: this.getAuthHeader()
@@ -97,7 +100,12 @@ export class BooksService {
 // getCurrentOrder(): Order {
 //     return this.orders[this.orders.length - 1];
 //   }
-
+updateOrder(order: Order): Observable<Order> {
+  const options = {
+    headers: this.getAuthHeader()
+  };
+  return this.http.patch<Order>(`${this.API_URL}/orders/update/${order.id}`, order);
+}
 
 
   private getAuthHeader(): HttpHeaders {
